@@ -27,3 +27,8 @@ spring:
     change-log: classpath:/db/changelog/master.xml
 server:
   port: 8080
+
+
+cstl:
+  jwt:
+    secret: secret
