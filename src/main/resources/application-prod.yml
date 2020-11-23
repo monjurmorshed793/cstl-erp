@@ -1,0 +1,24 @@
+spring:
+  profiles:
+    active: prod
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    # change the db properties in production
+    url: jdbc:mysql://localhost:3306/GoodDayErp?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    username: root
+    password:
+    hikari:
+      pool-name: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    show-sql: false
+  liquibase:
+    contexts: prod
+    change-log: classpath:/db/changelog/master.xml
+server:
+  port: 8080
